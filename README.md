@@ -44,3 +44,12 @@ Locação
 php artisan make:model -a Locacao
 ```
 
+**Configurando a conexão com o banco de dados e implementando as migrations**
+
+```sql
+CREATE DATABASE lc;
+```
+
+```php
+php artisan migrate
+```
