@@ -90,3 +90,8 @@ SELECT * FROM marcas;
     - Recurso dentro do host.
 - URI - Uniform Resource Identifier
     - Combinação do protocolo + URL + URN
+
+**Validações parte 3 - Validando parâmetros e a importância do Accept**
+- Headers
+    - Content-Type | application/x-www-form-urlencoded
+    - Accept | application/json
