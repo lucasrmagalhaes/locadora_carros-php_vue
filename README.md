@@ -70,3 +70,11 @@ http://127.0.0.1:8000/api/
 ```
 php artisan route:list
 ```
+
+**Criando registros via POST**
+
+```sql
+USE LC;
+DESCRIBE marcas;
+SELECT * FROM marcas;
+```
