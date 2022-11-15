@@ -64,3 +64,9 @@ php artisan migrate
 ```
 http://127.0.0.1:8000/api/
 ```
+
+**Rotas e a diferença entre Route::resource e Route::apiResource**
+
+```
+php artisan route:list
+```

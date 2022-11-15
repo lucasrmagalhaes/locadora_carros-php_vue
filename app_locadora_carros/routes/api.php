@@ -7,6 +7,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function () {
-    return ['Chegamos até aqui' => 'SIM'];
-});
+Route::apiResource('cliente', 'ClienteController');
+Route::apiResource('carro', 'CarroController');
+Route::apiResource('locacao', 'LocacaoController');
+Route::apiResource('marca', 'MarcaController');
+Route::apiResource('modelo', 'ModeloController');
