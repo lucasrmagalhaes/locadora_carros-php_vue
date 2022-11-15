@@ -1,6 +1,5 @@
 ### Locadora de Carros
 
-
 **Iniciando o projeto Locadora de Carros**
 
 ```
@@ -17,3 +16,31 @@ cd app_locadora_carros
 ```php
 php artisan serve
 ```
+
+**Criando os models, controllers e migrations**
+
+Marca
+```
+php artisan make:model --migration --controller --resource Marca
+```
+
+Modelo
+```
+php artisan make:model -mcr Modelo
+```
+
+Carro
+```
+php artisan make:model --all Carro
+```
+
+Cliente
+```
+php artisan make:model -a Cliente
+```
+
+Locação
+```
+php artisan make:model -a Locacao
+```
+
