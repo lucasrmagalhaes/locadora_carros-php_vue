@@ -82,3 +82,11 @@ SELECT * FROM marcas;
 **Atualizando registros via PUT e PATCH**
 - PUT utilizado para atualizar todos os campos.
 - PATCH utilizado para atualizar um campo específico.
+
+**Entendendo o conceito de endpoint (URL, URN e URI)**
+- URL - Uniform Resource Locator
+    - Host onde está o recurso.
+- URN - Uniform Resource Name
+    - Recurso dentro do host.
+- URI - Uniform Resource Identifier
+    - Combinação do protocolo + URL + URN
