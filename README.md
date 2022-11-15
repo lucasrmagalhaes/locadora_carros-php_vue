@@ -78,3 +78,7 @@ USE LC;
 DESCRIBE marcas;
 SELECT * FROM marcas;
 ```
+
+**Atualizando registros via PUT e PATCH**
+- PUT utilizado para atualizar todos os campos.
+- PATCH utilizado para atualizar um campo específico.
