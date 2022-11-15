@@ -95,3 +95,9 @@ SELECT * FROM marcas;
 - Headers
     - Content-Type | application/x-www-form-urlencoded
     - Accept | application/json
+
+**Validações parte 4 - Regras de validação no Update - Lidando com o Unique**
+- Unique
+    - 1) Tabela
+    - 2) Nome da coluna que será pesquisado na tabela
+    - 3) ID do registro que será desconsiderado na pesquisa
