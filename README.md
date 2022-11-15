@@ -53,3 +53,14 @@ CREATE DATABASE lc;
 ```php
 php artisan migrate
 ```
+
+**Entendendo o grupo de rotas Web e API e a importância do Content-Type**
+- Response
+    - Headers
+        - Content-Type
+            - text/html
+            - application/json
+
+```
+http://127.0.0.1:8000/api/
+```
