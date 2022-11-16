@@ -101,3 +101,14 @@ SELECT * FROM marcas;
     - 1) Tabela
     - 2) Nome da coluna que será pesquisado na tabela
     - 3) ID do registro que será desconsiderado na pesquisa
+
+**Upload de arquivos - Implementando o upload de imagens parte 1**
+
+```php
+$request->nome;
+$request->get('nome');
+$request->input('nome');
+
+$request->imagem;
+$request->file('imagem');
+```
