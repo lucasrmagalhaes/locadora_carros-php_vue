@@ -112,3 +112,9 @@ $request->input('nome');
 $request->imagem;
 $request->file('imagem');
 ```
+
+**Implementando o upload de imagens parte 2**
+- Disk - config/filesystems.php
+    - local -> /storage/app/
+    - public -> /storage/app/public/
+    - AWS S3 -> cloud
