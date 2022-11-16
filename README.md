@@ -118,3 +118,16 @@ $request->file('imagem');
     - local -> /storage/app/
     - public -> /storage/app/public/
     - AWS S3 -> cloud
+
+**Implementando o upload de imagens parte 3**
+
+```php
+$marca = $this->marca->create([
+    'nome' => $request->nome,
+    'imagem' => $imagem_urn
+]);
+
+$marca->nome = $request->nome;
+$marca->imagem = $imagem_urn;
+$marca->save();
+```
