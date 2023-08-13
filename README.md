@@ -147,6 +147,8 @@ imagem      ford.png
 _method     put
 ```
 
+---
+
 **Configurando o Vue.JS no Laravel**
 
 Iniciar o projeto Laravel
@@ -167,6 +169,11 @@ php artisan ui vue --auth
 Baixar as dependências de front-end
 ```
 npm install
+```
+
+Vue Loader
+```
+npm install vue-loader@^15.9.8 --save-dev --legacy-peer-deps
 ```
 
 Produzindo o bundle de front-end
