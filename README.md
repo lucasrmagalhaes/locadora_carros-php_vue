@@ -20,27 +20,27 @@ php artisan serve
 **Criando os models, controllers e migrations**
 
 Marca
-```
+```php
 php artisan make:model --migration --controller --resource Marca
 ```
 
 Modelo
-```
+```php
 php artisan make:model -mcr Modelo
 ```
 
 Carro
-```
+```php
 php artisan make:model --all Carro
 ```
 
 Cliente
-```
+```php
 php artisan make:model -a Cliente
 ```
 
 Locação
-```
+```php
 php artisan make:model -a Locacao
 ```
 
@@ -67,7 +67,7 @@ http://127.0.0.1:8000/api/
 
 **Rotas e a diferença entre Route::resource e Route::apiResource**
 
-```
+```php
 php artisan route:list
 ```
 
@@ -145,6 +145,14 @@ POST - form-data
 nome        BMW - Teste
 imagem      ford.png
 _method     put
+```
+
+---
+
+**Instalando o pacote JWT-Auth**
+
+```
+composer require tymon/jwt-auth "1.0.2"
 ```
 
 ---
