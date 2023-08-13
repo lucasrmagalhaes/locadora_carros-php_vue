@@ -155,6 +155,28 @@ _method     put
 composer require tymon/jwt-auth "1.0.2"
 ```
 
+**Configurando o JWT-Auth no projeto**
+
+[jwt-auth](https://jwt-auth.readthedocs.io/en/develop/laravel-installation/)
+
+config/app.php
+```
+'providers' => [
+    ...
+    Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+]
+```
+
+config/jwt.php
+```
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+```
+
+.env: JWT_SECRET=foobar
+```
+php artisan jwt:secret
+```
+
 ---
 
 **Configurando o Vue.JS no Laravel**
