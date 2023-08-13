@@ -138,6 +138,15 @@ $marca->save();
 php artisan storage:link
 ```
 
+**Upload de arquivos - Atualizando imagens**
+
+POST - form-data
+```
+nome        BMW - Teste
+imagem      ford.png
+_method     put
+```
+
 **Configurando o Vue.JS no Laravel**
 
 Iniciar o projeto Laravel
