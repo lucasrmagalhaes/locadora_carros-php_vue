@@ -179,6 +179,15 @@ php artisan jwt:secret
 
 ---
 
+**Adicionando o relacionamento entre modelos e marcas**
+
+- all()
+    - Cria um ojeto de consulta + get() = Collection
+- get()
+    - Modificar a consultar - Collection
+
+---
+
 **Configurando o Vue.JS no Laravel**
 
 Iniciar o projeto Laravel
