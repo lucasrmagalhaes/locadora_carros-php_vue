@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\JsonResponse;
 use App\Repositories\MarcaRepository;
 use App\Models\Marca;
 
@@ -84,7 +85,7 @@ class MarcaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Integer
+     * @param  Integer $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -135,11 +136,11 @@ class MarcaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request $request
      * @param  Integer $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, $id): JsonResponse
     {
         $marca = $this->marca->find($id);
 
