@@ -18,9 +18,10 @@ class CarroController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse
     {
         $carroRepository = new CarroRepository($this->carro);
 
@@ -76,9 +77,9 @@ class CarroController extends Controller
      * Display the specified resource.
      *
      * @param  Integer $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show($id): JsonResponse
     {
         $carro = $this->carro->with('modelo')->find($id);
 
@@ -103,11 +104,11 @@ class CarroController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Integer $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Integer $id
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): JsonResponse
     {
         $carro = $this->carro->find($id);
 
