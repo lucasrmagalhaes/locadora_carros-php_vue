@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Modelo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Modelo;
 
 class ModeloController extends Controller
 {
@@ -92,7 +93,7 @@ class ModeloController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Modelo  $modelo
+     * @param  Integer $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)

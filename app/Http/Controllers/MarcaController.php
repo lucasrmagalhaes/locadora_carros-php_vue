@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Marca;
-use Illuminate\Http\Request;
 
 class MarcaController extends Controller
 {
@@ -111,7 +111,8 @@ class MarcaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Integer
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Integer $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, $id)
