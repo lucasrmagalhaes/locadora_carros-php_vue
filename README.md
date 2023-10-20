@@ -177,6 +177,12 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServicePro
 php artisan jwt:secret
 ```
 
+**Criando as rotas de autenticação e autorização e o AuthController**
+
+```php
+php artisan make:controller AuthController
+```
+
 ---
 
 **Adicionando o relacionamento entre modelos e marcas**
