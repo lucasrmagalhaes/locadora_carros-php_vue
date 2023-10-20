@@ -183,6 +183,20 @@ php artisan jwt:secret
 php artisan make:controller AuthController
 ```
 
+**Inserindo um usuário no banco de dados**
+
+```php
+php artisan tinker
+
+$user = new App\Models\User();
+
+$user->name = 'Lucas';
+$user->email = 'lucasdarosa.ti@gmail.com';
+$user->password = bcrypt('1234');
+
+$user->save();
+```
+
 ---
 
 **Adicionando o relacionamento entre modelos e marcas**
