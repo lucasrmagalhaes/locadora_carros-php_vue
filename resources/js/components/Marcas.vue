@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card mb-3">
                     <div class="card-header">Busca de marcas</div>
 
                     <div class="card-body">
@@ -33,6 +33,36 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-sm float-end">Pesquisar</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Relação de marcas</div>
+
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary btn-sm float-end">Adicionar</button>
                     </div>
                 </div>
             </div>

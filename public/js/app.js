@@ -5377,7 +5377,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col-md-8"
   }, [_c("div", {
-    staticClass: "card"
+    staticClass: "card mb-3"
   }, [_c("div", {
     staticClass: "card-header"
   }, [_vm._v("Busca de marcas")]), _vm._v(" "), _c("div", {
@@ -5418,7 +5418,7 @@ var render = function render() {
       "aria-describedby": "idHelp",
       placeholder: "Informe o nome da marca"
     }
-  })])], 1)])]), _vm._v(" "), _vm._m(0)])])])]);
+  })])], 1)])]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm._m(1)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5431,6 +5431,45 @@ var staticRenderFns = [function () {
       type: "submit"
     }
   }, [_vm._v("Pesquisar")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-header"
+  }, [_vm._v("Relação de marcas")]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("table", {
+    staticClass: "table table-bordered table-striped table-hover"
+  }, [_c("thead", [_c("tr", [_c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("#")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("First")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Last")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Handle")])])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("th", {
+    attrs: {
+      scope: "row"
+    }
+  }, [_vm._v("1")]), _vm._v(" "), _c("td", [_vm._v("Mark")]), _vm._v(" "), _c("td", [_vm._v("Otto")]), _vm._v(" "), _c("td", [_vm._v("@mdo")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-primary btn-sm float-end",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Adicionar")])])]);
 }];
 render._withStripped = true;
 
