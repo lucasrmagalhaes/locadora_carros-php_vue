@@ -5334,9 +5334,56 @@ var staticRenderFns = [function () {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "card-header"
-  }, [_vm._v("Marcas")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Busca de marcas")]), _vm._v(" "), _c("div", {
     staticClass: "card-body"
-  }, [_c("p", [_vm._v("Manipular os registros de marca")])])])])])]);
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("label", {
+    attrs: {
+      "for": "inputId"
+    }
+  }, [_vm._v("ID")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      id: "inputId",
+      "aria-describedby": "idHelp",
+      placeholder: "Informa o ID da marca"
+    }
+  }), _vm._v(" "), _c("small", {
+    staticClass: "form-text text-muted",
+    attrs: {
+      id: "idHelp"
+    }
+  }, [_vm._v("Opcional. Informe o ID do registro.")])]), _vm._v(" "), _c("div", {
+    staticClass: "col"
+  }, [_c("label", {
+    attrs: {
+      "for": "inputNome"
+    }
+  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      id: "inputNome",
+      "aria-describedby": "idHelp",
+      placeholder: "Informe o nome da marca"
+    }
+  }), _vm._v(" "), _c("small", {
+    staticClass: "form-text text-muted",
+    attrs: {
+      id: "idHelp"
+    }
+  }, [_vm._v("Opcional. Informe o nome da marca.")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-primary btn-sm float-end",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Pesquisar")])])])])])]);
 }];
 render._withStripped = true;
 
