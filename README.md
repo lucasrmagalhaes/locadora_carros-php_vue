@@ -241,3 +241,9 @@ npm run dev
 ```
 
 ---
+
+**Expirando o JWT por tempo limite**
+
+```
+JWT_TTL=120 // minutos no arquivo .env
+```
