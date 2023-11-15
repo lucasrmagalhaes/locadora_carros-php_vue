@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46759a7c220389918c2608801d56e0e4",
+    "content-hash": "23e7b14046df5ab5788e779f26771e31",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1326,23 +1326,27 @@
         },
         {
             "name": "laravel/ui",
-            "version": "v3.2.1",
+            "version": "v3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ui.git",
-                "reference": "e2478cd0342a92ec1c8c77422553bda8ee004fd0"
+                "reference": "65ec5c03f7fee2c8ecae785795b829a15be48c2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/e2478cd0342a92ec1c8c77422553bda8ee004fd0",
-                "reference": "e2478cd0342a92ec1c8c77422553bda8ee004fd0",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/65ec5c03f7fee2c8ecae785795b829a15be48c2c",
+                "reference": "65ec5c03f7fee2c8ecae785795b829a15be48c2c",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^8.0",
-                "illuminate/filesystem": "^8.0",
-                "illuminate/support": "^8.0",
+                "illuminate/console": "^8.42|^9.0",
+                "illuminate/filesystem": "^8.42|^9.0",
+                "illuminate/support": "^8.82|^9.0",
+                "illuminate/validation": "^8.42|^9.0",
                 "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23|^7.0"
             },
             "type": "library",
             "extra": {
@@ -1377,9 +1381,9 @@
                 "ui"
             ],
             "support": {
-                "source": "https://github.com/laravel/ui/tree/v3.2.1"
+                "source": "https://github.com/laravel/ui/tree/v3.4.6"
             },
-            "time": "2021-04-27T18:17:41+00:00"
+            "time": "2022-05-20T13:38:08+00:00"
         },
         {
             "name": "lcobucci/jwt",

@@ -208,12 +208,15 @@ $user->save();
 
 ---
 
-**Configurando o Vue.JS no Laravel**
+**Expirando o JWT por tempo limite**
 
-Iniciar o projeto Laravel
 ```
-composer create-project --prefer-dist laravel/laravel=8.5.9 
+JWT_TTL=120 // minutos no arquivo .env
 ```
+
+---
+
+**Configurando o Vue.JS no Laravel**
 
 Instalar o pacote UI
 ```
@@ -238,12 +241,4 @@ npm install vue-loader@^15.9.8 --save-dev --legacy-peer-deps
 Produzindo o bundle de front-end
 ```
 npm run dev
-```
-
----
-
-**Expirando o JWT por tempo limite**
-
-```
-JWT_TTL=120 // minutos no arquivo .env
 ```
