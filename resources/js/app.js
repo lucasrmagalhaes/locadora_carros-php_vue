@@ -1,4 +1,4 @@
-require('./bootstrap');
+import './bootstrap';
 
 window.Vue = require('vue').default;
 
@@ -9,7 +9,6 @@ Vue.component('input-container-component', require('./components/InputContainer.
 Vue.component('table-component', require('./components/Table.vue').default);
 Vue.component('card-component', require('./components/Card.vue').default);
 Vue.component('modal-component', require('./components/Modal.vue').default);
+Vue.component('alert-component', require('./components/Alert.vue').default);
 
-const app = new Vue({
-    el: '#app',
-});
+const app = new Vue({ el: '#app' });

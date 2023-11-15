@@ -8,6 +8,7 @@
                 </div>
 
                 <div class="modal-body d-flex flex-column gap-4">
+                    <slot name="alertas"></slot>
                     <slot name="conteudo"></slot>
                 </div>
 
