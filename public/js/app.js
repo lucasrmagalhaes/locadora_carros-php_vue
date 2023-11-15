@@ -5480,7 +5480,7 @@ var render = function render() {
             type: "number",
             id: "inputId",
             "aria-describedby": "idHelp",
-            placeholder: "Informa o ID da marca"
+            placeholder: "ID"
           }
         })])], 1), _vm._v(" "), _c("div", {
           staticClass: "col"
@@ -5497,7 +5497,7 @@ var render = function render() {
             type: "number",
             id: "inputNome",
             "aria-describedby": "idHelp",
-            placeholder: "Informe o nome da marca"
+            placeholder: "Nome"
           }
         })])], 1)])];
       },
@@ -5542,7 +5542,65 @@ var render = function render() {
     attrs: {
       id: "modalMarca",
       titulo: "Adicionar Marca"
-    }
+    },
+    scopedSlots: _vm._u([{
+      key: "conteudo",
+      fn: function fn() {
+        return [_c("div", {
+          staticClass: "form-group"
+        }, [_c("input-container-component", {
+          attrs: {
+            id: "novoNome",
+            titulo: "Nome",
+            "id-help": "novoNomeHelp",
+            "texto-ajuda": "Informe o nome da marca"
+          }
+        }, [_c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "novoNome",
+            "aria-describedby": "novoNomeHelp",
+            placeholder: "Nome"
+          }
+        })])], 1), _vm._v(" "), _c("div", {
+          staticClass: "form-group"
+        }, [_c("input-container-component", {
+          attrs: {
+            id: "novaImagem",
+            titulo: "Imagem",
+            "id-help": "novaImagemHelp",
+            "texto-ajuda": "Selecione uma imagem no formato PNG"
+          }
+        }, [_c("input", {
+          staticClass: "form-control-file",
+          attrs: {
+            type: "file",
+            id: "novaImagem",
+            "aria-describedby": "novaImagemHelp",
+            placeholder: "Selecione uma imagem"
+          }
+        })])], 1)];
+      },
+      proxy: true
+    }, {
+      key: "rodape",
+      fn: function fn() {
+        return [_c("button", {
+          staticClass: "btn btn-secondary",
+          attrs: {
+            type: "button",
+            "data-bs-dismiss": "modal"
+          }
+        }, [_vm._v("Fechar")]), _vm._v(" "), _c("button", {
+          staticClass: "btn btn-primary",
+          attrs: {
+            type: "button"
+          }
+        }, [_vm._v("Salvar")])];
+      },
+      proxy: true
+    }])
   })], 1);
 };
 var staticRenderFns = [];
@@ -5593,27 +5651,12 @@ var render = function render() {
       "aria-label": "Close"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "modal-body"
-  }, [_vm._v("\n            ...\n        ")]), _vm._v(" "), _vm._m(0)])])]);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
+    staticClass: "modal-body d-flex flex-column gap-4"
+  }, [_vm._t("conteudo")], 2), _vm._v(" "), _c("div", {
     staticClass: "modal-footer"
-  }, [_c("button", {
-    staticClass: "btn btn-secondary",
-    attrs: {
-      type: "button",
-      "data-bs-dismiss": "modal"
-    }
-  }, [_vm._v("Fechar")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary",
-    attrs: {
-      type: "button"
-    }
-  }, [_vm._v("Salvar")])]);
-}];
+  }, [_vm._t("rodape")], 2)])])]);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
