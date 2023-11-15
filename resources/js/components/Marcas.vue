@@ -8,15 +8,25 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <label for="inputId">ID</label>
-                                <input type="number" class="form-control" id="inputId" aria-describedby="idHelp" placeholder="Informa o ID da marca" />
-                                <small id="idHelp" class="form-text text-muted">Opcional. Informe o ID do registro.</small>
+                                <input-container-component
+                                    id="inputId"
+                                    titulo="ID"
+                                    id-help="idHelp"
+                                    texto-ajuda="Opcional. Informe o ID da marca."
+                                >
+                                    <input type="number" class="form-control" id="inputId" aria-describedby="idHelp" placeholder="Informa o ID da marca" />
+                                </input-container-component>
                             </div>
 
                             <div class="col">
-                                <label for="inputNome">Nome</label>
-                                <input type="number" class="form-control" id="inputNome" aria-describedby="idHelp" placeholder="Informe o nome da marca" />
-                                <small id="idHelp" class="form-text text-muted">Opcional. Informe o nome da marca.</small>
+                                <input-container-component
+                                    id="inputNome"
+                                    titulo="Nome"
+                                    id-help="idHelp"
+                                    texto-ajuda="Opcional. Informe o nome da marca"
+                                >
+                                    <input type="number" class="form-control" id="inputNome" aria-describedby="idHelp" placeholder="Informe o nome da marca" />
+                                </input-container-component>
                             </div>
                         </div>
                     </div>
