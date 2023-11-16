@@ -53,7 +53,7 @@
                 >
                     <template v-slot:conteudo>
                         <table-component
-                            :dados="marcas"
+                            :dados="marcas.data"
                             :titulos="{
                                 id: { titulo: 'ID', tipo: 'texto' },
                                 nome: { titulo: 'Nome', tipo: 'texto' },
@@ -64,9 +64,27 @@
                     </template>
 
                     <template v-slot:rodape>
-                        <button type="button" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modalMarca">
-                            Adicionar
-                        </button>
+                        <div class="row">
+                            <div class="col-10">
+                                <paginate-component>
+                                    <li
+                                        v-for="link, key in marcas.links"
+                                        :key="key"
+                                        :class="link.active ? 'page-item active' : 'page-item'"
+                                        @click="paginacao(link)"
+
+                                    >
+                                        <a class="page-link" v-html="link.label"></a>
+                                    </li>
+                                </paginate-component>
+                            </div>
+
+                            <div class="col-2">
+                                <button type="button" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modalMarca">
+                                    Adicionar
+                                </button>
+                            </div>
+                        </div>
                     </template>
                 </card-component>
             </div>
@@ -159,10 +177,16 @@
                 arquivoImagem: [],
                 transacaoStatus: '',
                 transacaoDetalhaes: {},
-                marcas: []
+                marcas: { data: [] }
             }
         },
         methods: {
+            paginacao(link) {
+                if (link.url) {
+                    this.urlBase = link.url;
+                    this.carregarLista();
+                }
+            },
             carregarLista() {
                 let config = {
                     headers: {
@@ -173,7 +197,7 @@
 
                 axios.get(this.urlBase, config)
                     .then(response => {
-                        this.marcas = response.data
+                        this.marcas = response.data;
                     }).catch(errors => {
                         console.log(errors);
                     });

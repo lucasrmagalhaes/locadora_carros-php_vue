@@ -38,18 +38,18 @@
                 let campos = Object.keys(this.titulos);
                 let dadosFiltrados = [];
 
-                let itemFiltrado = {};
-
                 this.dados.map((item, chave) => {
+                    let itemFiltrado = {};
+
                     campos.forEach(campo => {
                         itemFiltrado[campo] = item[campo];
-                    });
+                    })
 
                     dadosFiltrados.push(itemFiltrado);
-                });
+                })
 
                 return dadosFiltrados;
             }
         }
-    };
+    }
 </script>
