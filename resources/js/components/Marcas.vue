@@ -62,6 +62,9 @@
                     <template v-slot:conteudo>
                         <table-component
                             :dados="marcas.data"
+                            :visualizar="true"
+                            :atualizar="true"
+                            :remover="true"
                             :titulos="{
                                 id: { titulo: 'ID', tipo: 'texto' },
                                 nome: { titulo: 'Nome', tipo: 'texto' },
