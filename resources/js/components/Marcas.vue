@@ -20,6 +20,7 @@
                                         id="inputId"
                                         aria-describedby="idHelp"
                                         placeholder="ID"
+                                        v-model="busca.id"
                                     />
                                 </input-container-component>
                             </div>
@@ -37,6 +38,7 @@
                                         id="inputNome"
                                         aria-describedby="idHelp"
                                         placeholder="Nome"
+                                        v-model="busca.nome"
                                     />
                                 </input-container-component>
                             </div>
@@ -44,7 +46,13 @@
                     </template>
 
                     <template v-slot:rodape>
-                        <button type="submit" class="btn btn-primary btn-sm float-end">Pesquisar</button>
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-sm float-end"
+                            @click="pesquisar()"
+                        >
+                            Pesquisar
+                        </button>
                     </template>
                 </card-component>
 
@@ -173,21 +181,48 @@
         data() {
             return {
                 urlBase: `${this.base_url}/api/v1/marca`,
+                urlPaginacao: '',
+                urlFiltro: '',
                 nomeMarca: '',
                 arquivoImagem: [],
                 transacaoStatus: '',
                 transacaoDetalhaes: {},
-                marcas: { data: [] }
+                marcas: { data: [] },
+                busca: { id: '', nome: '' }
             }
         },
         methods: {
+            pesquisar() {
+                let filtro = '';
+
+                for (let chave in this.busca) {
+                    if (this.busca[chave]) {
+                        if (filtro != '') {
+                            filtro += ';';
+                        }
+
+                        filtro += chave + ':like:' + this.busca[chave];
+                    }
+                }
+
+                if (filtro != '') {
+                    this.urlPaginacao = 'page=1';
+                    this.urlFiltro = '&filtro=' + filtro;
+                } else {
+                    this.urlFiltro = '';
+                }
+
+                this.carregarLista();
+            },
             paginacao(link) {
                 if (link.url) {
-                    this.urlBase = link.url;
+                    this.urlPaginacao = link.url.split('?')[1]
                     this.carregarLista();
                 }
             },
             carregarLista() {
+                let url = this.urlBase + '?' + this.urlPaginacao + this.urlFiltro;
+
                 let config = {
                     headers: {
                         'Accept': 'application/json',
@@ -195,7 +230,7 @@
                     }
                 };
 
-                axios.get(this.urlBase, config)
+                axios.get(url, config)
                     .then(response => {
                         this.marcas = response.data;
                     }).catch(errors => {
