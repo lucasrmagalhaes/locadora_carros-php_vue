@@ -2,10 +2,16 @@
     <div :class="estilo" role="alert">
         {{ titulo }}
 
-        <ul v-if="detalhes.data.errors">
-            <hr />
+        <hr />
 
-            <li v-for="error, key in detalhes.data.errors" :key="key">
+        <p>
+            {{ detalhes.mensagem }}
+        </p>
+
+        <br />
+
+        <ul v-if="detalhes.dados">
+            <li v-for="error, key in detalhes.dados" :key="key">
                 {{ error[0] }}
             </li>
         </ul>

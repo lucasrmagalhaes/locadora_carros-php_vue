@@ -52,7 +52,10 @@
                     titulo="Relação de marcas"
                 >
                     <template v-slot:conteudo>
-                        <table-component></table-component>
+                        <table-component
+                            :dados="marcas"
+                            :titulos="['ID', 'Nome', 'Imagem']"
+                        />
                     </template>
 
                     <template v-slot:rodape>
@@ -131,6 +134,7 @@
     import axios from 'axios';
 
     export default {
+        props: ['base_url'],
         computed: {
             token() {
                 let token = document.cookie.split(';').find(indice => {
@@ -145,14 +149,30 @@
         },
         data() {
             return {
-                urlBase: 'http://localhost:8000/api/v1/marca',
+                urlBase: `${this.base_url}/api/v1/marca`,
                 nomeMarca: '',
                 arquivoImagem: [],
                 transacaoStatus: '',
-                transacaoDetalhaes: []
+                transacaoDetalhaes: {},
+                marcas: []
             }
         },
         methods: {
+            carregarLista() {
+                let config = {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': this.token
+                    }
+                };
+
+                axios.get(this.urlBase, config)
+                    .then(response => {
+                        this.marcas = response.data
+                    }).catch(errors => {
+                        console.log(errors);
+                    });
+            },
             carregarImagem(event) {
                 this.arquivoImagem = event.target.files;
             },
@@ -173,13 +193,21 @@
                 axios.post(this.urlBase, formData, config)
                     .then(response => {
                         this.transacaoStatus = 'adicionado'
-                        this.transacaoDetalhaes = response
+                        this.transacaoDetalhaes = {
+                            mensagem: 'ID do registro: ' + response.data.id
+                        }
                     })
                     .catch(errors => {
                         this.transacaoStatus = 'erro'
-                        this.transacaoDetalhaes = errors.response
+                        this.transacaoDetalhaes = {
+                            mensagem: errors.response.data.message,
+                            dados: errors.response.data.errors
+                        }
                     });
-            }
+            },
+        },
+        mounted() {
+            this.carregarLista()
         }
     }
 </script>
