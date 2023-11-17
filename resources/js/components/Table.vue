@@ -63,6 +63,8 @@
         props: ['dados', 'titulos', 'atualizar', 'visualizar', 'remover'],
         methods: {
             setStore(obj) {
+                this.$store.state.transacao.status = '';
+                this.$store.state.transacao.mensagem = '';
                 this.$store.state.item = obj;
             }
         },

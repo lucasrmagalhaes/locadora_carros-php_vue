@@ -232,20 +232,20 @@
             <template v-slot:alertas>
                 <alert-component
                     tipo="success"
-                    :detalhes="transacaoDetalhaes"
-                    titulo="Cadastro realizado com sucesso."
-                    v-if="transacaoStatus == 'adicionado'"
+                    titulo="Transação realizada com sucesso."
+                    :detalhes="$store.state.transacao"
+                    v-if="$store.state.transacao.status == 'sucesso'"
                 />
 
                 <alert-component
                     tipo="danger"
-                    :detalhes="transacaoDetalhaes"
-                    titulo="Erro ao tentar cadastrar."
-                    v-if="transacaoStatus == 'erro'"
+                    titulo="Erro na transação."
+                    :detalhes="$store.state.transacao"
+                    v-if="$store.state.transacao.status == 'erro'"
                 />
             </template>
 
-            <template v-slot:conteudo>
+            <template v-slot:conteudo v-if="$store.state.transacao.status != 'sucesso'">
                 <input-container-component titulo="ID">
                     <input
                         type="text"
@@ -266,13 +266,19 @@
             </template>
 
             <template v-slot:rodape>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Fechar
+                </button>
 
                 <button
                     type="button"
                     class="btn btn-danger"
-                    data-bs-dismiss="modal"
                     @click="remover()"
+                    v-if="$store.state.transacao.status != 'sucesso'"
                 >
                     Remover
                 </button>
@@ -376,11 +382,13 @@
 
                 axios.post(this.urlBase, formData, config)
                     .then(response => {
-                        this.transacaoStatus = 'adicionado'
+                        this.transacaoStatus = 'adicionado';
 
                         this.transacaoDetalhaes = {
                             mensagem: 'ID do registro: ' + response.data.id
                         };
+
+                        this.carregarLista();
                     })
                     .catch(errors => {
                         this.transacaoStatus = 'erro'
@@ -410,10 +418,14 @@
                 };
 
                 axios.post(url, formData, config)
-                    .then(() => {
+                    .then((response) => {
+                        this.$store.state.transacao.status = 'sucesso';
+                        this.$store.state.transacao.mensagem = response.data.msg;
+
                         this.carregarLista();
-                    }).catch(() => {
-                        console.log('Houve um erro na tentiva de remoção do registro.');
+                    }).catch((errors) => {
+                        this.$store.state.transacao.status = 'erro';
+                        this.$store.state.transacao.mensagem = errors.response.data.erro;
                     });
             }
         },
