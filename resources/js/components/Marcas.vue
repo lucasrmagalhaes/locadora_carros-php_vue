@@ -62,7 +62,11 @@
                     <template v-slot:conteudo>
                         <table-component
                             :dados="marcas.data"
-                            :visualizar="true"
+                            :visualizar="{
+                                visivel: true,
+                                dataToggle: 'modal',
+                                dataTarget: '#modalMarcaVisualizar'
+                            }"
                             :atualizar="true"
                             :remover="true"
                             :titulos="{
@@ -159,6 +163,66 @@
             <template v-slot:rodape>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 <button type="button" class="btn btn-primary" @click="salvar()">Salvar</button>
+            </template>
+        </modal-component>
+
+        <modal-component id="modalMarcaVisualizar" titulo="Visualizar Marca">
+            <template v-slot:alertas>
+                <alert-component
+                    tipo="success"
+                    :detalhes="transacaoDetalhaes"
+                    titulo="Cadastro realizado com sucesso."
+                    v-if="transacaoStatus == 'adicionado'"
+                />
+
+                <alert-component
+                    tipo="danger"
+                    :detalhes="transacaoDetalhaes"
+                    titulo="Erro ao tentar cadastrar."
+                    v-if="transacaoStatus == 'erro'"
+                />
+            </template>
+
+            <template v-slot:conteudo>
+                <!-- <div class="form-group">
+                    <input-container-component
+                        id="novoNome"
+                        titulo="Nome"
+                        id-help="novoNomeHelp"
+                        texto-ajuda="Informe o nome da marca"
+                    >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="novoNome"
+                            aria-describedby="novoNomeHelp"
+                            placeholder="Nome"
+                            v-model="nomeMarca"
+                        />
+                    </input-container-component>
+                </div>
+
+                <div class="form-group">
+                    <input-container-component
+                        id="novaImagem"
+                        titulo="Imagem"
+                        id-help="novaImagemHelp"
+                        texto-ajuda="Selecione uma imagem no formato PNG"
+                    >
+                        <input
+                            type="file"
+                            class="form-control-file"
+                            id="novaImagem"
+                            aria-describedby="novaImagemHelp"
+                            placeholder="Selecione uma imagem"
+                            @change="carregarImagem($event)"
+                        />
+                    </input-container-component>
+                </div> -->
+            </template>
+
+            <template v-slot:rodape>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </template>
         </modal-component>
     </div>
