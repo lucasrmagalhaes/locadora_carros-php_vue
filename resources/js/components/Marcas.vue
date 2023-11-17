@@ -68,7 +68,11 @@
                                 dataTarget: '#modalMarcaVisualizar'
                             }"
                             :atualizar="true"
-                            :remover="true"
+                            :remover="{
+                                visivel: true,
+                                dataToggle: 'modal',
+                                dataTarget: '#modalMarcaRemover'
+                            }"
                             :titulos="{
                                 id: { titulo: 'ID', tipo: 'texto' },
                                 nome: { titulo: 'Nome', tipo: 'texto' },
@@ -95,7 +99,7 @@
                             </div>
 
                             <div class="col-2">
-                                <button type="button" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modalMarca">
+                                <button type="button" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modalMarcaAdicionar">
                                     Adicionar
                                 </button>
                             </div>
@@ -105,7 +109,7 @@
             </div>
         </div>
 
-        <modal-component id="modalMarca" titulo="Adicionar Marca">
+        <modal-component id="modalMarcaAdicionar" titulo="Adicionar Marca">
             <template v-slot:alertas>
                 <alert-component
                     tipo="success"
@@ -184,45 +188,94 @@
             </template>
 
             <template v-slot:conteudo>
-                <!-- <div class="form-group">
-                    <input-container-component
-                        id="novoNome"
-                        titulo="Nome"
-                        id-help="novoNomeHelp"
-                        texto-ajuda="Informe o nome da marca"
-                    >
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="novoNome"
-                            aria-describedby="novoNomeHelp"
-                            placeholder="Nome"
-                            v-model="nomeMarca"
-                        />
-                    </input-container-component>
-                </div>
+                <input-container-component titulo="ID">
+                    <input
+                        type="text"
+                        class="form-control"
+                        :value="$store.state.item.id"
+                        disabled
+                    />
+                </input-container-component>
 
-                <div class="form-group">
-                    <input-container-component
-                        id="novaImagem"
-                        titulo="Imagem"
-                        id-help="novaImagemHelp"
-                        texto-ajuda="Selecione uma imagem no formato PNG"
-                    >
-                        <input
-                            type="file"
-                            class="form-control-file"
-                            id="novaImagem"
-                            aria-describedby="novaImagemHelp"
-                            placeholder="Selecione uma imagem"
-                            @change="carregarImagem($event)"
-                        />
-                    </input-container-component>
-                </div> -->
+                <input-container-component titulo="Nome">
+                    <input
+                        type="text"
+                        class="form-control"
+                        :value="$store.state.item.nome"
+                        disabled
+                    />
+                </input-container-component>
+
+                <input-container-component titulo="Imagem">
+                    <img
+                        :src="'storage/' + $store.state.item.imagem"
+                        v-if="$store.state.item.imagem"
+                    />
+                </input-container-component>
+
+                <input-container-component titulo="Data de criação">
+                    <input
+                        type="text"
+                        class="form-control"
+                        :value="$store.state.item.created_at"
+                        disabled
+                    />
+                </input-container-component>
             </template>
 
             <template v-slot:rodape>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </template>
+        </modal-component>
+
+        <modal-component id="modalMarcaRemover" titulo="Remover Marca">
+            <template v-slot:alertas>
+                <alert-component
+                    tipo="success"
+                    :detalhes="transacaoDetalhaes"
+                    titulo="Cadastro realizado com sucesso."
+                    v-if="transacaoStatus == 'adicionado'"
+                />
+
+                <alert-component
+                    tipo="danger"
+                    :detalhes="transacaoDetalhaes"
+                    titulo="Erro ao tentar cadastrar."
+                    v-if="transacaoStatus == 'erro'"
+                />
+            </template>
+
+            <template v-slot:conteudo>
+                <input-container-component titulo="ID">
+                    <input
+                        type="text"
+                        class="form-control"
+                        :value="$store.state.item.id"
+                        disabled
+                    />
+                </input-container-component>
+
+                <input-container-component titulo="Nome">
+                    <input
+                        type="text"
+                        class="form-control"
+                        :value="$store.state.item.nome"
+                        disabled
+                    />
+                </input-container-component>
+            </template>
+
+            <template v-slot:rodape>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                    @click="remover()"
+                >
+                    Remover
+                </button>
             </template>
         </modal-component>
     </div>
@@ -324,9 +377,10 @@
                 axios.post(this.urlBase, formData, config)
                     .then(response => {
                         this.transacaoStatus = 'adicionado'
+
                         this.transacaoDetalhaes = {
                             mensagem: 'ID do registro: ' + response.data.id
-                        }
+                        };
                     })
                     .catch(errors => {
                         this.transacaoStatus = 'erro'
@@ -336,6 +390,32 @@
                         }
                     });
             },
+            remover() {
+                let confirmacao = confirm('Tem certeza que deseja remover esse registro?')
+
+                if (!confirmacao) {
+                    return false;
+                }
+
+                let url = this.urlBase + '/' + this.$store.state.item.id;
+
+                let formData = new FormData();
+                formData.append('_method', 'delete');
+
+                let config = {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': this.token
+                    }
+                };
+
+                axios.post(url, formData, config)
+                    .then(() => {
+                        this.carregarLista();
+                    }).catch(() => {
+                        console.log('Houve um erro na tentiva de remoção do registro.');
+                    });
+            }
         },
         mounted() {
             this.carregarLista()

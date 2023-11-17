@@ -7,7 +7,7 @@
                         {{ value.titulo }}
                     </th>
 
-                    <th v-if="visualizar.visivel || atualizar || remover"></th>
+                    <th v-if="visualizar.visivel || atualizar || remover.visivel"></th>
                 </tr>
             </thead>
 
@@ -27,20 +27,30 @@
                         </span>
                     </td>
 
-                    <td v-if="visualizar.visivel || atualizar || remover">
+                    <td v-if="visualizar.visivel || atualizar || remover.visivel">
                         <button
                             type="button"
                             v-if="visualizar.visivel"
                             class="btn btn-outline-primary btn-sm"
                             :data-bs-toggle="visualizar.dataToggle"
                             :data-bs-target="visualizar.dataTarget"
+                            @click="setStore(obj)"
                         >
                             Visualizar
                         </button>
 
                         <button v-if="atualizar" class="btn btn-outline-primary btn-sm">Atualizar</button>
 
-                        <button v-if="remover" class="btn btn-outline-danger btn-sm">Remover</button>
+                        <button
+                            type="button"
+                            v-if="remover.visivel"
+                            class="btn btn-outline-danger btn-sm"
+                            :data-bs-toggle="remover.dataToggle"
+                            :data-bs-target="remover.dataTarget"
+                            @click="setStore(obj)"
+                        >
+                            Remover
+                        </button>
                     </td>
                 </tr>
             </tbody>
@@ -51,6 +61,11 @@
 <script>
     export default {
         props: ['dados', 'titulos', 'atualizar', 'visualizar', 'remover'],
+        methods: {
+            setStore(obj) {
+                this.$store.state.item = obj;
+            }
+        },
         computed: {
             dadosFiltrados() {
                 let campos = Object.keys(this.titulos);

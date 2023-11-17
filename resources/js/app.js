@@ -6,7 +6,9 @@ window.Vue = require('vue').default;
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    state: {}
+    state: {
+        item: {}
+    }
 });
 
 Vue.component('login-component', require('./components/Login.vue').default);

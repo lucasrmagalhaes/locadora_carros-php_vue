@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Repositories\MarcaRepository;
 use App\Models\Marca;
+use App\Models\Carro;
 
 class MarcaController extends Controller
 {
@@ -153,7 +156,28 @@ class MarcaController extends Controller
             Storage::disk('public')->delete($marca->imagem);
         }
 
-        $marca->delete();
+        try {
+            DB::beginTransaction();
+
+            // Para cada modelo da marca, excluir todos os carros relacionados
+            foreach ($marca->modelos as $modelo) {
+                Carro::where('modelo_id', $modelo->id)->delete();
+            }
+
+            // Excluir os modelos e a marca
+            $marca->modelos()->delete();
+            $marca->delete();
+
+            DB::commit();
+
+            return response()->json(['msg' => 'A marca foi removida com sucesso!'], 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            Log::error('Erro ao excluir marca: ' . $e->getMessage());
+
+            return response()->json(['erro' => 'Erro ao excluir a marca: ' . $e->getMessage()], 500);
+        }
 
         return response()->json(['msg' => 'A marca foi removida com sucesso!'], 200);
     }
