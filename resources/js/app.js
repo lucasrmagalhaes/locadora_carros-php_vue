@@ -1,6 +1,13 @@
 import './bootstrap';
+import Vuex from 'vuex';
 
 window.Vue = require('vue').default;
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {}
+});
 
 Vue.component('login-component', require('./components/Login.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
@@ -12,4 +19,7 @@ Vue.component('modal-component', require('./components/Modal.vue').default);
 Vue.component('alert-component', require('./components/Alert.vue').default);
 Vue.component('paginate-component', require('./components/Paginate.vue').default);
 
-const app = new Vue({ el: '#app' });
+const app = new Vue({
+    el: '#app',
+    store
+});

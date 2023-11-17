@@ -242,3 +242,9 @@ Produzindo o bundle de front-end
 ```
 npm run dev
 ```
+
+**Instalando e configurando o Vuex no projeto**
+
+```
+npm install vuex@3.6.2
+```
