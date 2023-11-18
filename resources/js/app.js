@@ -19,6 +19,7 @@ const store = new Vuex.Store({
 Vue.component('login-component', require('./components/Login.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('clientes-component', require('./components/Clientes.vue').default);
+Vue.component('carros-component', require('./components/Carros.vue').default);
 Vue.component('marcas-component', require('./components/Marcas.vue').default);
 Vue.component('modelos-component', require('./components/Modelos.vue').default);
 Vue.component('input-container-component', require('./components/InputContainer.vue').default);

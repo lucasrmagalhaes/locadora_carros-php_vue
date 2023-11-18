@@ -78,7 +78,7 @@
                                 dataTarget: '#modalMarcaRemover'
                             }"
                             :titulos="{
-                                id: { titulo: 'ID', tipo: 'texto' },
+                                id: { titulo: '#', tipo: 'texto' },
                                 nome: { titulo: 'Nome', tipo: 'texto' },
                                 imagem: { titulo: 'Imagem', tipo: 'imagem' },
                                 created_at: { titulo: 'Criação', tipo: 'data' },

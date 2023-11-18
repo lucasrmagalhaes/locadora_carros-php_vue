@@ -25,6 +25,10 @@
                         <span v-if="titulos[chaveValor].tipo == 'imagem'">
                             <img :src="'/storage/' + valor" width="30" height="30" />
                         </span>
+
+                        <span v-if="titulos[chaveValor].tipo == 'boolean'">
+                            {{ valor == '1' ? 'Sim' : 'Não' }}
+                        </span>
                     </td>
 
                     <td v-if="visualizar.visivel || atualizar.visivel || remover.visivel">

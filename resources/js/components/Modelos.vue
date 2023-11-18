@@ -78,7 +78,8 @@
                                 dataTarget: '#modalRemover'
                             }"
                             :titulos="{
-                                id: { titulo: 'ID', tipo: 'texto' },
+                                id: { titulo: '#', tipo: 'texto' },
+                                marca_id: { titulo: 'Marca', tipo: 'texto' },
                                 nome: { titulo: 'Nome', tipo: 'texto' },
                                 imagem: { titulo: 'Imagem', tipo: 'imagem' },
                                 numero_portas: { titulo: 'Número de portas', tipo: 'texto' },
@@ -357,8 +358,6 @@
                     v-if="$store.state.transacao.status == 'erro'"
                 />
             </template>
-
-            {{ $store.state.item }}
 
             <template v-slot:conteudo>
                 <div class="form-group">

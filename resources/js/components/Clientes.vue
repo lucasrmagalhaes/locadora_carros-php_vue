@@ -60,9 +60,9 @@
                                 dataTarget: '#modalRemover'
                             }"
                             :titulos="{
-                                id: { titulo: 'ID', tipo: 'texto' },
+                                id: { titulo: '#', tipo: 'texto' },
                                 nome: { titulo: 'Nome', tipo: 'texto' },
-                                created_at: { titulo: 'Criação', tipo: 'data' },
+                                created_at: { titulo: 'Criação', tipo: 'data' }
                             }"
                         />
                     </template>
@@ -155,7 +155,7 @@
             </template>
 
             <template v-slot:conteudo>
-                <input-container-component titulo="ID">
+                <input-container-component titulo="#">
                     <input
                         type="text"
                         class="form-control"

@@ -29,7 +29,7 @@ abstract class AbstractRepository {
     }
 
     public function getResultado() {
-        return $this->model->get();
+        return $this->model->with('marca');
     }
 
     public function getResultadoPaginado($numeroRegistroPorPagina) {
