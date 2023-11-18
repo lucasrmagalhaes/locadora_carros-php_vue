@@ -8,6 +8,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/clientes', function() {
+    return view('app.clientes');
+})->name('clientes')->middleware('auth');
+
 Route::get('/marcas', function() {
     return view('app.marcas');
 })->name('marcas')->middleware('auth');
