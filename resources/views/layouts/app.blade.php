@@ -56,7 +56,7 @@
                                             Marcas
                                         </a>
 
-                                        <a class="dropdown-item" href="#">Modelos</a>
+                                        <a class="dropdown-item" href="{{ route('modelos') }}">Modelos</a>
                                     </div>
                                 </li>
                             @endauth
