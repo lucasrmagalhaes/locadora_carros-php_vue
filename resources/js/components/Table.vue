@@ -19,7 +19,7 @@
                         </span>
 
                         <span v-if="titulos[chaveValor].tipo == 'data'">
-                            {{ valor }}
+                            {{ valor | formataDataTempoGlobal }}
                         </span>
 
                         <span v-if="titulos[chaveValor].tipo == 'imagem'">

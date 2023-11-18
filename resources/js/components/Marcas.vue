@@ -221,7 +221,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        :value="$store.state.item.created_at"
+                        :value="$store.state.item.created_at | formataDataTempoGlobal"
                         disabled
                     />
                 </input-container-component>
