@@ -6,7 +6,7 @@
                     <div class="card-header">Bem-vindo</div>
 
                     <div class="card-body">
-                        <p>Apresentar indicadores do sistema</p>
+                        <p>TCC - LocaRápido | Lucas Magalhães</p>
                     </div>
                 </div>
             </div>

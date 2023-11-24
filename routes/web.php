@@ -12,6 +12,10 @@ Route::get('/clientes', function() {
     return view('app.clientes');
 })->name('clientes')->middleware('auth');
 
+Route::get('/locacoes', function() {
+    return view('app.locacoes');
+})->name('locacoes')->middleware('auth');
+
 Route::get('/carros', function() {
     return view('app.carros');
 })->name('carros')->middleware('auth');

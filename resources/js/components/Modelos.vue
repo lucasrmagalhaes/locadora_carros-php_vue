@@ -331,7 +331,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        :value="$store.state.item.created_at | formataDataTempoGlobal"
+                        :value="$store.state.item.created_at | formataTimestampGlobal"
                         disabled
                     />
                 </input-container-component>

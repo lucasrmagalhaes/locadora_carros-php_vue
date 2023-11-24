@@ -32,7 +32,7 @@ class LocacaoController extends Controller
             $locacaoRepository->selectAtributos($request->atributos);
         }
 
-        return response()->json($locacaoRepository->getResultado(), 200);
+        return response()->json($locacaoRepository->getResultadoPaginado(3), 200);
     }
 
     /**
@@ -53,7 +53,7 @@ class LocacaoController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $request->validate($this->locacao->rules());
+        $request->validate($this->locacao->rules(), $this->locacao->feedback());
 
         $locacao = $this->locacao->create([
             'cliente_id' => $request->cliente_id,
@@ -123,7 +123,7 @@ class LocacaoController extends Controller
 
             $request->validate($regrasDinamicas);
         } else {
-            $request->validate($locacao->rules());
+            $request->validate($locacao->rules(), $locacao->feedback());
         }
 
         $locacao->fill($request->all());
