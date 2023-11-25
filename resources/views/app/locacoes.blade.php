@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <locacoes-component base_url="{{ config('app.url') }}" />
+    <locacoes-component base_url="{{ url('/') }}" />
 @endsection

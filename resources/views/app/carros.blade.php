@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <carros-component base_url="{{ config('app.url') }}" />
+    <carros-component base_url="{{ url('/') }}" />
 @endsection
