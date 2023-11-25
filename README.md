@@ -1,6 +1,6 @@
-### Locadora de Carros
+### LocaRápido
 
-**Iniciando o projeto Locadora de Carros**
+**Iniciando o projeto**
 
 ```
 composer create-project --prefer-dist laravel/laravel app_locadora_carros "8.5.9"
