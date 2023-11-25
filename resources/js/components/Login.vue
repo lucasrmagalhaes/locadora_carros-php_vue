@@ -58,7 +58,7 @@
 
 <script>
     export default {
-        props: ['base_url', 'csrf_token'],
+        props: ['url_login', 'csrf_token'],
         data() {
             return {
                 email: '',
@@ -67,7 +67,7 @@
         },
         methods: {
             login(event) {
-                let url = `${this.base_url}/api/login`;
+                let url = this.url_login;
 
                 let configuracao = {
                     method: 'post',
