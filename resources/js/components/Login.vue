@@ -67,7 +67,7 @@
         },
         methods: {
             login(event) {
-                let url = this.base_url;
+                let url = 'https://lucasrmagalhaes.com.br/api/login';
 
                 let configuracao = {
                     method: 'post',
