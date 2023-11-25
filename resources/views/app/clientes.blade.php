@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <clientes-component base_url="https://lucasrmagalhaes.com.br" />
+    <clientes-component base_url="{{ url('/') }}" />
 @endsection
