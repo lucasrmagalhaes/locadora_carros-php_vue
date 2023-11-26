@@ -320,12 +320,13 @@
                     />
                 </input-container-component>
 
-                <input-container-component titulo="Imagem">
+                <div class="col-12 text-center">
                     <img
+                        width="400"
                         :src="'storage/' + $store.state.item.imagem"
                         v-if="$store.state.item.imagem"
                     />
-                </input-container-component>
+                </div>
 
                 <input-container-component titulo="Data de criação">
                     <input

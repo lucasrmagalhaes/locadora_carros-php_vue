@@ -62,7 +62,7 @@ class ModeloController extends Controller
         $request->validate($this->modelo->rules());
 
         $imagem = $request->file('imagem');
-        $imagem_urn = $imagem->store('imagens/modelos', 'public');
+        $imagem_urn = $imagem->store('imagens', 'public');
 
         $modelo = $this->modelo->create([
             'marca_id' => $request->marca_id,
@@ -141,7 +141,7 @@ class ModeloController extends Controller
             Storage::disk('public')->delete($modelo->imagem);
 
             $imagem = $request->file('imagem');
-            $imagem_urn = $imagem->store('imagens/modelos', 'public');
+            $imagem_urn = $imagem->store('imagens', 'public');
         }
 
         $modelo->update([
