@@ -703,12 +703,12 @@
                     this.urlFiltro = '';
                 }
 
-                // this.carregarLista();
+                this.carregarLista();
             },
             paginacao(link) {
                 if (link.url) {
                     this.urlPaginacao = link.url.split('?')[1]
-                    // this.carregarLista();
+                    this.carregarLista();
                 }
             },
             carregarLista() {
@@ -756,7 +756,7 @@
                             mensagem: 'ID do registro: ' + response.data.id
                         };
 
-                        // this.carregarLista();
+                        this.carregarLista();
                     })
                     .catch(errors => {
                         this.transacaoStatus = 'erro'
@@ -794,7 +794,7 @@
                         this.$store.state.transacao.status = 'sucesso';
                         this.$store.state.transacao.mensagem = 'Registro atualizado com sucesso.';
 
-                        // this.carregarLista();
+                        this.carregarLista();
                     })
                     .catch(errors => {
                         this.$store.state.transacao.status = 'erro';
@@ -826,7 +826,7 @@
                         this.$store.state.transacao.status = 'sucesso';
                         this.$store.state.transacao.mensagem = response.data.msg;
 
-                        // this.carregarLista();
+                        this.carregarLista();
                     }).catch((errors) => {
                         this.$store.state.transacao.status = 'erro';
                         this.$store.state.transacao.mensagem = errors.response.data.errors;

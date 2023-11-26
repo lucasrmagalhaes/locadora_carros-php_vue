@@ -152,7 +152,7 @@
                             class="form-control"
                             id="novaPlaca"
                             aria-describedby="novaPlacaHelp"
-                            placeholder="Nome"
+                            placeholder="Placa"
                             v-model="placa"
                         />
                     </input-container-component>
